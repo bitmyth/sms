@@ -2,6 +2,7 @@
 
 namespace Myth;
 
+use Closure;
 use InvalidArgumentException;
 use Myth\Brokers\AliyunBroker;
 use Myth\Contracts\SmsBroker;
@@ -22,6 +23,8 @@ class SmsBrokerManager implements \Myth\Contracts\SmsBrokerFactory
      * @var array
      */
     protected $brokers = [];
+
+    protected $customCreators = [];
 
     /**
      * SmsBrokerManager constructor.
@@ -56,6 +59,10 @@ class SmsBrokerManager implements \Myth\Contracts\SmsBrokerFactory
             throw new InvalidArgumentException("Sms broker [{$name}] is not defined.");
         }
 
+        if (isset($this->customCreators[$config['driver']])) {
+            return $this->callCustomCreator($name, $config);
+        }
+
         $driverMethod = 'create' . ucfirst($config['driver']);
 
         if (method_exists($this, $driverMethod)) {
@@ -63,6 +70,11 @@ class SmsBrokerManager implements \Myth\Contracts\SmsBrokerFactory
         }
 
         throw new InvalidArgumentException("Sms driver [{$config['driver']}] for [{$name}] is not defined.");
+    }
+
+    protected function callCustomCreator($name, array $config)
+    {
+        return $this->customCreators[$config['driver']]($this->app, $name, $config);
     }
 
     /**
@@ -90,6 +102,13 @@ class SmsBrokerManager implements \Myth\Contracts\SmsBrokerFactory
     protected function getConfig($name)
     {
         return $this->app['config']["sms.brokers.{$name}"];
+    }
+
+    public function extend($driver, Closure $callback)
+    {
+        $this->customCreators[$driver] = $callback;
+
+        return $this;
     }
 
     public function __call($method, $parameters)
