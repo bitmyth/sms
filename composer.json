@@ -1,0 +1,37 @@
+{
+  "name": "bitmyth/sms",
+  "authors": [
+    {
+      "name": "Shawn Gao",
+      "email": "fishis@163.com"
+    }
+  ],
+  "require": {
+    "alibabacloud/client": "^1.5",
+    "laravel/laravel": "^5.8",
+    "ext-json": "*"
+  },
+  "keywords": [
+    "bitmyth",
+    "wxpay",
+    "pay"
+  ],
+  "config": {
+    "preferred-install": "dist"
+  },
+  "autoload": {
+    "psr-4": {
+      "Myth\\": "src/Myth/"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Bitmyth\\Myth\\Sms\\SmsServiceProvider"
+      ],
+      "aliases": {
+        "Sms": "Bitmyth\\Myth\\Facades\\Sms"
+      }
+    }
+  }
+}
