@@ -34,7 +34,7 @@ class SmsServiceProvider extends ServiceProvider implements DeferrableProvider
     public function boot()
     {
         $this->publishes([
-            __DIR__ . '/config/sms.php' => config_path('sms.php'),
+            __DIR__ . '/../config/sms.php' => config_path('sms.php'),
         ]);
 
         $this->loadRoutesFrom(__DIR__ . '/routes.php');
