@@ -10,7 +10,7 @@
   ],
   "require": {
     "alibabacloud/client": "^1.5",
-    "laravel/laravel": "^5.8",
+    "laravel/laravel": ">=5.6",
     "ext-json": "*"
   },
   "keywords": [
