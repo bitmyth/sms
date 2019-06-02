@@ -16,7 +16,7 @@ class SmsController
 {
     public function send(Request $request)
     {
-        $result = SMS::send('18911209450', new VerificationCode(1182));
+        $result = SMS::send($request->get('phone', '18911209450'), new VerificationCode(1182));
 
         return $result;
     }
