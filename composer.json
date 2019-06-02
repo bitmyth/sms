@@ -2,6 +2,7 @@
   "name": "bitmyth/sms",
   "type": "library",
   "description": "sms manager",
+  "license": "MIT",
   "authors": [
     {
       "name": "Shawn Gao",
@@ -28,10 +29,10 @@
   "extra": {
     "laravel": {
       "providers": [
-        "Bitmyth\\Myth\\Sms\\SmsServiceProvider"
+        "Myth\\Sms\\SmsServiceProvider"
       ],
       "aliases": {
-        "Sms": "Bitmyth\\Myth\\Facades\\Sms"
+        "Sms": "Myth\\Facades\\Sms"
       }
     }
   }
