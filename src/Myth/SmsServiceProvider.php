@@ -18,7 +18,7 @@ class SmsServiceProvider extends ServiceProvider implements DeferrableProvider
     public function register()
     {
         $this->mergeConfigFrom(
-            __DIR__ . '/config/sms.php', 'sms'
+            __DIR__ . '/../config/sms.php', 'sms'
         );
 
         $this->app->singleton(SmsBroker::class, function ($app) {
