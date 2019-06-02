@@ -13,8 +13,7 @@
   },
   "keywords": [
     "bitmyth",
-    "wxpay",
-    "pay"
+    "sms"
   ],
   "config": {
     "preferred-install": "dist"
