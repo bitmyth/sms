@@ -1,5 +1,7 @@
 {
   "name": "bitmyth/sms",
+  "type": "library",
+  "description": "sms manager",
   "authors": [
     {
       "name": "Shawn Gao",
