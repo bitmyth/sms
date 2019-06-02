@@ -6,5 +6,5 @@
  * Time: 10:49 AM
  */
 Route::middleware(['api'])->group(function () {
-    Route::post('/sms', 'SmsControllers@send');
+    Route::post('/sms', 'Myth\Controllers\SmsControllers@send');
 });
