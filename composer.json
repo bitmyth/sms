@@ -29,7 +29,7 @@
   "extra": {
     "laravel": {
       "providers": [
-        "Myth\\Sms\\SmsServiceProvider"
+        "Myth\\SmsServiceProvider"
       ],
       "aliases": {
         "Sms": "Myth\\Facades\\Sms"
