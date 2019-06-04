@@ -15,6 +15,10 @@ return [
             'regionId' => env('ALIYUN_SMS_REGION_ID', 'cn-hangzhou'),
             'signName' => env('ALIYUN_SMS_SIGN_NAME'),
             'templateCode' => env('ALIYUN_SMS_TEMPLATE_CODE'),
+        ],
+        'yunpian' => [
+            'driver' => 'YunpianBroker',
+            'apiKey' => env('YUNPIAN_API_KEY'),
         ]
     ]
 ];

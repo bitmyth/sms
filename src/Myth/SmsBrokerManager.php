@@ -5,6 +5,7 @@ namespace Myth;
 use Closure;
 use InvalidArgumentException;
 use Myth\Brokers\AliyunBroker;
+use Myth\Brokers\YunpianBroker;
 use Myth\Contracts\SmsBroker;
 
 /**
@@ -84,6 +85,12 @@ class SmsBrokerManager implements \Myth\Contracts\SmsBrokerFactory
     public function createAliyunBroker($config)
     {
         $broker = new AliyunBroker($config);
+        return $broker;
+    }
+
+    public function createYunpianBroker($config)
+    {
+        $broker = new YunpianBroker($config);
         return $broker;
     }
 

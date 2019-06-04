@@ -47,7 +47,17 @@ class AliyunBroker implements SmsBroker
                     ],
                 ])
                 ->request();
-            return $result->toArray();
+
+            // On success
+            // Array
+            // (
+            //    [Message] => OK
+            //    [RequestId] => 630F26C0-20A2-48E8-84C5-C5A86D70D670
+            //    [BizId] => 262707259641659428^0
+            //    [Code] => OK
+            // )
+            return ['success' => $result->get('Message') == 'OK', 'result' => $result->toArray()];
+
         } catch (ClientException $e) {
             echo $e->getErrorMessage() . PHP_EOL;
             throw $e;

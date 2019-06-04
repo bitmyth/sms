@@ -12,7 +12,8 @@
   "require": {
     "alibabacloud/client": "^1.5",
     "laravel/laravel": ">=5.8",
-    "ext-json": "*"
+    "ext-json": "*",
+    "yunpian/yunpian-php-sdk": "^1.0"
   },
   "keywords": [
     "bitmyth",
