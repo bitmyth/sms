@@ -10,5 +10,5 @@ namespace Myth\Contracts;
  */
 interface SmsBrokerFactory
 {
-    public function broker($name);
+    public function driver($name);
 }

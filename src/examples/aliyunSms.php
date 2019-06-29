@@ -23,7 +23,7 @@ $app->bootstrapWith([
 ]);
 
 $smsManager = new SmsBrokerManager($app);
-$sms = $smsManager->broker('aliyun');
+$sms = $smsManager->driver('aliyun');
 $result = $sms->send('18911209450', new VerificationCode(1182));
 
 print_r($result);

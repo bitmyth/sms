@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Foundation\Application;
-use Myth\Messages\VerificationCode;
 use Myth\SmsBrokerManager;
 
 /**
@@ -18,12 +17,12 @@ $app = new Application(
 );
 
 $app->bootstrapWith([
-    \Illuminate\Foundation\Bootstrap\LoadConfiguration::class,
     \Illuminate\Foundation\Bootstrap\LoadEnvironmentVariables::class,
+    \Illuminate\Foundation\Bootstrap\LoadConfiguration::class,
 ]);
 
 $smsManager = new SmsBrokerManager($app);
-$sms = $smsManager->broker('yunpian');
+$sms = $smsManager->driver('yunpian');
 $result = $sms->send('13470079150', new \Myth\Messages\YunpianVerificationCode(1234));
 
 print_r($result);

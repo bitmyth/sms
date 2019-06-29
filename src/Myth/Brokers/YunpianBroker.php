@@ -28,11 +28,11 @@ class YunpianBroker implements SmsBroker
     public function send($phone, $message)
     {
         //初始化client,apikey作为所有请求的默认值
-        $clnt = YunpianClient::create($this->config['apiKey']);
+        $client = YunpianClient::create($this->config['apiKey']);
 
         $message = (string)$message;
         $param = [YunpianClient::MOBILE => '13470091533', YunpianClient::TEXT => $message];
-        $result = $clnt->sms()->single_send($param);
+        $result = $client->sms()->single_send($param);
         if ($result->isSucc()) {
             return ['success' => $result->isSucc(), 'result' => $result->data()];
         } else {
