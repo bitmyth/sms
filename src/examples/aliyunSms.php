@@ -18,8 +18,8 @@ $app = new Application(
 );
 
 $app->bootstrapWith([
-    \Illuminate\Foundation\Bootstrap\LoadConfiguration::class,
     \Illuminate\Foundation\Bootstrap\LoadEnvironmentVariables::class,
+    \Illuminate\Foundation\Bootstrap\LoadConfiguration::class,
 ]);
 
 $smsManager = new SmsBrokerManager($app);
